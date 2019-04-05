@@ -3,6 +3,9 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 
 public class HTTPRequest {
 	
@@ -18,7 +21,7 @@ public class HTTPRequest {
 	}
 
 	public void HTTPGetRequest(int teamId) throws InterruptedException {
-
+		//return an array of scores?
 		try {
 
 			String url = "https://statsapi.web.nhl.com/api/v1/schedule?teamId="+teamId; // testing with id 3, but jets is
@@ -38,7 +41,8 @@ public class HTTPRequest {
 				responce.append(inputLine);
 			}
 			in.close();
-
+			
+			
 		} catch (Exception c) {
 			System.out.println(c);
 		}
