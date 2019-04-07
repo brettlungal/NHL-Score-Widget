@@ -26,6 +26,7 @@ import javax.swing.JComboBox;
 import java.awt.Font;
 import java.awt.Color;
 import javax.swing.JButton;
+import javax.swing.SwingConstants;
 
 public class Widget {
 
@@ -80,26 +81,26 @@ public class Widget {
 		frame.setAlwaysOnTop(true);
 		frame.setSize(300, 200);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(null);
 		
-		ImageIcon img = new ImageIcon("img\\nhlLogo.png");
+		ImageIcon img = new ImageIcon("src\\images\\nhlLogo.png");
 		frame.setIconImage(img.getImage());
 		
 		JButton menuButton = new JButton("Menu");
+		menuButton.setBounds(10, 11, 89, 23);
 		menuButton.setFont(new Font("Tahoma", Font.BOLD, 12));
 		menuButton.setForeground(new Color(240, 248, 255));
 		menuButton.setBackground(new Color(47, 79, 79));
-		menuButton.setBounds(10, 11, 89, 23);
 		menuButton.setVisible(false);
+		frame.getContentPane().setLayout(null);
 		
 		frame.getContentPane().add(menuButton);
 
 		JComboBox<ComboItem> comboBox = new JComboBox<ComboItem>();
+		comboBox.setBounds(82, 79, 149, 32);
 		comboBox.setBackground(new Color(47, 79, 79));
 		comboBox.setForeground(new Color(240, 248, 255));
 		comboBox.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		comboBox.setEditable(true);
-		comboBox.setBounds(82, 79, 149, 32);
 		comboBox.setSelectedItem("Select Team");
 		comboBox.addItem(new ComboItem("Anaheim Ducks", 24));
 		comboBox.addItem(new ComboItem("Arizona Coyotes", 53));
@@ -152,48 +153,52 @@ public class Widget {
 		
 		// create labels for the scores and team names but dont show them yet
 		homeTeam = new JLabel(homeName);
-		homeTeam.setForeground(Color.WHITE);
-		homeTeam.setFont(new Font("Tahoma", Font.BOLD, 14));
-		homeTeam.setSize(159, 38);
-		homeTeam.setLocation(0, 36);
+		homeTeam.setHorizontalAlignment(SwingConstants.CENTER);
+		homeTeam.setBounds(-11, 27, 159, 75);
+		homeTeam.setForeground(new Color(255, 255, 240));
+		homeTeam.setFont(new Font("Tahoma", Font.BOLD, 16));
 		homeTeam.setVisible(false);
 		frame.getContentPane().add(homeTeam);
 
 		awayTeam = new JLabel(awayName);
-		awayTeam.setForeground(Color.WHITE);
-		awayTeam.setFont(new Font("Tahoma", Font.BOLD, 14));
-		awayTeam.setLocation(157, 34);
-		awayTeam.setSize(143, 34);
+		awayTeam.setHorizontalAlignment(SwingConstants.CENTER);
+		awayTeam.setBounds(157, 34, 143, 60);
+		awayTeam.setForeground(new Color(255, 255, 240));
+		awayTeam.setFont(new Font("Tahoma", Font.BOLD, 16));
 		awayTeam.setVisible(false);
 		frame.getContentPane().add(awayTeam);
 
 		homeScoreDisplay = new JLabel(homeScore + "");
-		homeScoreDisplay.setForeground(Color.WHITE);
+		homeScoreDisplay.setHorizontalAlignment(SwingConstants.CENTER);
+		homeScoreDisplay.setBounds(26, 79, 80, 80);
+		homeScoreDisplay.setForeground(new Color(255, 255, 240));
 		homeScoreDisplay.setFont(new Font("Tahoma", Font.BOLD, 90));
-		homeScoreDisplay.setLocation(33, 79);
-		homeScoreDisplay.setSize(80, 80);
 		homeScoreDisplay.setVisible(false);
 		frame.getContentPane().add(homeScoreDisplay);
 
 		awayScoreDisplay = new JLabel(awayScore + "");
-		awayScoreDisplay.setForeground(Color.WHITE);
+		awayScoreDisplay.setHorizontalAlignment(SwingConstants.CENTER);
+		awayScoreDisplay.setBounds(187, 79, 80, 80);
+		awayScoreDisplay.setForeground(new Color(255, 255, 240));
 		awayScoreDisplay.setFont(new Font("Tahoma", Font.BOLD, 90));
-		awayScoreDisplay.setLocation(187, 79);
-		awayScoreDisplay.setSize(80, 80);
 		awayScoreDisplay.setVisible(false);
 		frame.getContentPane().add(awayScoreDisplay);
 		
 		exitButton = new JButton("Exit");
+		exitButton.setBounds(201, 12, 89, 23);
 		exitButton.setForeground(new Color(240, 248, 255));
 		exitButton.setBackground(new Color(47, 79, 79));
 		exitButton.setFont(new Font("Tahoma", Font.BOLD, 12));
-		exitButton.setBounds(201, 12, 89, 23);
 		exitButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				System.exit(0);
 			}
 		});
 		frame.getContentPane().add(exitButton);
+		
+		JLabel bground = new JLabel(new ImageIcon("src\\images\\resize.jpg"));
+		bground.setBounds(0, 0, 300, 200);
+		frame.getContentPane().add(bground);
 		
 		
 
