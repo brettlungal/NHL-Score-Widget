@@ -82,7 +82,9 @@ public class Widget {
 		frame.setSize(300, 200);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
-		ImageIcon img = new ImageIcon("src\\images\\nhlLogo.png");
+		URL url = Widget.class.getResource("/images/nhlLogo.png");
+		ImageIcon img = new ImageIcon(url);
+		
 		frame.setIconImage(img.getImage());
 		
 		JButton menuButton = new JButton("Menu");
@@ -196,7 +198,8 @@ public class Widget {
 		});
 		frame.getContentPane().add(exitButton);
 		
-		JLabel bground = new JLabel(new ImageIcon("src\\images\\resize.jpg"));
+		URL url2 = Widget.class.getResource("/images/resize.jpg");
+		JLabel bground = new JLabel(new ImageIcon(url2));
 		bground.setBounds(0, 0, 300, 200);
 		frame.getContentPane().add(bground);
 		
